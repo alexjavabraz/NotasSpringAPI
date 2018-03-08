@@ -11,8 +11,6 @@ import notas.api.spring.service.TransacaoService;
 
 public class NotasTest {
 
-
-
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 
@@ -21,28 +19,38 @@ public class NotasTest {
 		TransacaoService service = new TransacaoService();
 		
 		Double valor = 30d;
-		TransacaoDTO t = service.contarNotas(valor);
+		TransacaoDTO t = new TransacaoDTO();
+		t.setValor(valor);
+		service.contarNotas(t);
 		assertEquals(1, t.getQtdNotasDez());
 		assertEquals(1, t.getQtdNotasVinte());
 
 		valor = 80d;
-		t = service.contarNotas(valor);
+		t = new TransacaoDTO();
+		t.setValor(valor);
+		service.contarNotas(t);
 		assertEquals(1, t.getQtdNotasDez());
 		assertEquals(1, t.getQtdNotasVinte());
 		assertEquals(1, t.getQtdNotasCinquenta());
 
 		valor = 800d;
-		t = service.contarNotas(valor);
+		t = new TransacaoDTO();
+		t.setValor(valor);
+		service.contarNotas(t);
 		assertEquals(8, t.getQtdNotasCem());
 
 		valor = 330d;
-		t = service.contarNotas(valor);
+		t = new TransacaoDTO();
+		t.setValor(valor);
+		service.contarNotas(t);
 		assertEquals(3, t.getQtdNotasCem());
 		assertEquals(1, t.getQtdNotasVinte());
 		assertEquals(1, t.getQtdNotasDez());
 
 		valor = 10d;
-		t = service.contarNotas(valor);
+		t = new TransacaoDTO();
+		t.setValor(valor);
+		service.contarNotas(t);
 		assertEquals(1, t.getQtdNotasDez());
 	}
 
@@ -51,7 +59,9 @@ public class NotasTest {
 		TransacaoService service = new TransacaoService();
 		exception.expect(IllegalArgumentException.class);
 		exception.expectMessage("Negative value not allowed");
-		service.contarNotas(-1D);
+		TransacaoDTO t = new TransacaoDTO();
+		t.setValor(-1d);
+		service.contarNotas(t);
 	}
 	
 	@Test

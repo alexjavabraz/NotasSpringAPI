@@ -34,7 +34,7 @@ public class TransacaoDTO implements Serializable{
 	
 	private Double valor;
 	
-	private String mensagem;
+	private String mensagem = "";
 	
 	private int qtdNotasCem;	
 	
@@ -51,6 +51,18 @@ public class TransacaoDTO implements Serializable{
 		this.setDataTransacao(getFormatedDate(t.getDataTransacao()));
 		this.setOrigem(t.getOrigem().getNome());
 		this.setValor(t.getVlrValor().doubleValue());
+		
+		if(t.getQtdNotasCem() != null)
+			this.setQtdNotasCem(t.getQtdNotasCem());
+		
+		if(t.getQtdNotasCinquenta() != null)
+			this.setQtdNotasCinquenta(t.getQtdNotasCinquenta());
+		
+		if(t.getQtdNotasVinte() != null)
+			this.setQtdNotasVinte(t.getQtdNotasVinte());
+		
+		if(t.getQtdNotasDez() != null)
+			this.setQtdNotasDez(t.getQtdNotasDez());
 	}
 
 	public Long getId() {
@@ -87,9 +99,6 @@ public class TransacaoDTO implements Serializable{
 		this.valor = valor;
 	}
 	
-	
-
-
 	public String getMensagem() {
 		return mensagem;
 	}

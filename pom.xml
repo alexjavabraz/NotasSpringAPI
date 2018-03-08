@@ -40,12 +40,6 @@
 			
 		</dependency>
 
-		<!-- PostgreSQL JDBC driver -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 
 		<!-- TEST DEPENDENCIES -->
 		<!-- Spring Boot Starter Test -->
@@ -121,11 +115,6 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         
-		<dependency>
-		  <groupId>org.web3j</groupId>
-		  <artifactId>core</artifactId>
-		  <version>3.2.0</version>
-		</dependency>
      
 	</dependencies>
 
